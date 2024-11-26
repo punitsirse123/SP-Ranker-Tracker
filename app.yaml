@@ -1,0 +1,20 @@
+runtime: nodejs18
+
+env_variables:
+  GOOGLE_CLIENT_ID: "your_client_id"
+  GOOGLE_CLIENT_SECRET: "your_client_secret"
+  MONGODB_URI: "mongodb+srv://your_mongodb_uri"
+  SESSION_SECRET: "your_session_secret"
+  CLIENT_URL: "https://your-frontend-url.com"
+
+instance_class: F1
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 10
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
